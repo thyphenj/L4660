@@ -1,12 +1,11 @@
-﻿using System.Collections.Generic;
-
-using System;
+﻿using System;
+using System.Collections.Generic;
 
 namespace L4660
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             List<int> usedPrimes = new List<int>();
 
@@ -27,7 +26,7 @@ namespace L4660
 
             foreach (int possD in Primes.PrimeList)
             {
-                int cube = possD * possD * possD;
+                int cube = possD * possD * possD;           // 15ac !
                 if (cube >= 10000 && cube < 100000)
                 {
                     Answer tryThis = new Answer(cube);

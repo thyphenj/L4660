@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace L4660
 {
-    class Program
+    internal class Program
     {
-        static void Main()
+        private static void Main()
         {
             List<int> usedPrimes = new List<int>();
 
@@ -66,7 +66,7 @@ namespace L4660
                             }
             Console.WriteLine();
 
-            // At this point we know entry 10dn (V) ends in 8 so 15ac = 289 and D, L and S are 29, 43 and 17 
+            // At this point we know entry 10dn (V) ends in 8 so 15ac = 289 and D, L and S are 29, 43 and 17
             int D = 29;
             int L = 43;
             int S = 17;

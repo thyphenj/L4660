@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace L4660
 {
-    class Triangle
+    internal class Triangle
     {
         public List<int> LoNums;
         public List<int> HiNums;
@@ -29,6 +27,5 @@ namespace L4660
                 nxtTry = i * (i + 1) / 2;
             }
         }
-
     }
 }

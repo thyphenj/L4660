@@ -2,7 +2,7 @@
 
 namespace L4660
 {
-    class Answer
+    internal class Answer
     {
         public int Clue { get; set; }
         public int? Prime { get; set; }
@@ -24,7 +24,7 @@ namespace L4660
             clueString = Clue.ToString();
         }
 
-        public List<Answer> Possibles ()
+        public List<Answer> Possibles()
         {
             var retval = new List<Answer>();
 

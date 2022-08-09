@@ -5,33 +5,43 @@ namespace L4660
     internal class Answer
     {
         public int Clue { get; set; }
-        public int? Prime { get; set; }
-        public int? Entry { get; set; }
+        public int Prime { get; set; }
+        public int Entry { get; set; }
+        public char Letter { get; set; }
 
         private string clueString;
 
-        public Answer(int clue)
+        public Answer()
         {
-            Clue = clue;
-            clueString = Clue.ToString();
         }
-
-        public Answer(int clue, int prime, int entry)
+        public Answer(int clue, int prime, int entry, char letter)
         {
             Clue = clue;
             Prime = prime;
             Entry = entry;
+            Letter = letter;
+
             clueString = Clue.ToString();
         }
 
-        public List<Answer> Possibles()
+        public Answer(int clue, char letter=' ')
+        {
+            Clue = clue;
+            Prime = 0;
+            Entry = 0;
+            Letter = letter;
+
+            clueString = Clue.ToString();
+        }
+
+        public List<Answer> ExtractPrime()
         {
             var retval = new List<Answer>();
 
             for (int i = 0; i < clueString.Length - 1; i++)
             {
                 int possPrime = int.Parse(clueString.Substring(i, 2));
-                if (Primes.isPrime(possPrime))
+                if (Program.isPrime(possPrime))
                 {
                     string ent = "";
                     if (i > 0)
@@ -39,7 +49,8 @@ namespace L4660
                     if (i + 2 < clueString.Length)
                         ent += clueString.Substring(i + 2);
 
-                    retval.Add(new Answer(Clue, possPrime, int.Parse(ent)));
+                    if (int.Parse(ent) >= 10)
+                        retval.Add(new Answer(Clue, possPrime, int.Parse(ent), Letter));
                 }
             }
             return retval;
@@ -47,7 +58,8 @@ namespace L4660
 
         public override string ToString()
         {
-            return $"{Clue,6}  -  {Prime}  -  {Entry}";
+            string str = Letter == ' ' ? " =" : $"{Letter}=";
+            return $"({Clue,5} {str}{Prime} {Entry,3})";
         }
     }
 }

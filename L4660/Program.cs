@@ -497,13 +497,13 @@ namespace L4660
             {
                 if (usedPrimes.Contains(p)) continue;
 
-                //if (isPrime(int.Parse($"{p}{ent}")))
+                if (isPrime(int.Parse($"{p}{ent}")))
                     Console.WriteLine($"{p}{ent}");
 
-                //if (isPrime(int.Parse($"{ent/10}{p}{ent%10}")))
+                if (isPrime(int.Parse($"{ent/10}{p}{ent%10}")))
                     Console.WriteLine($"{ent / 10}{p}{ent % 10}");
 
-                //if (isPrime(int.Parse($"{ent}{p}")))
+                if (isPrime(int.Parse($"{ent}{p}")))
                     Console.WriteLine($"{ent}{p}");
             }
 
@@ -533,15 +533,15 @@ namespace L4660
 
         internal static bool isPrime(int n)
         {
-            if (n % 2 == 0 || n % 5 == 0)
+            if (n % 2 == 0 || n % 3 == 0 || n % 5 == 0 || n%7 == 0)
                 return false;
 
             foreach (int a in primes)
             {
-                if (a == n)
-                    return true;
+                if (n != a && n % a == 0)
+                    return false;
             }
-            return false;
+            return true;
         }
         internal static List<Answer> posSquar(List<int> reversiblePrimes)
         {

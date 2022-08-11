@@ -553,6 +553,7 @@ namespace L4660
             // ---------------------------------------------------
 
             var ac02 = new Answer();
+
             foreach ( var poss in poss_ac02)
             {
                 if (digitAtPosition(poss.Entry, 2) != digitAtPosition(dn04.Entry, 0)) continue;
